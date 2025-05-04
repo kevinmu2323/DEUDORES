@@ -3,7 +3,7 @@ if($_SERVER['REQUEST_METHOD']==='POST')
 {
     include 'clases.php';
     include 'consultas.php';
-$name=$_POST['name'];
+$name=$_POST['name']??"";
 $valor=$_POST['valor'];
 $mensaje=$_POST['mensaje'];
 $ruta= congif :: ruta();

@@ -10,7 +10,7 @@ $eliminar=strtoupper($eliminar);
 $lineanueva=[];
 
 $archivo=fopen($ruta,"r");
-while(($lineas=fgetcsv($archivo,0,"|"))!== false)
+while(($lineas=fgetcsv($archivo,0,"|")??"")!== false)
 {  
 
     if($lineas[1]===$buscar)
@@ -27,7 +27,7 @@ while(($lineas=fgetcsv($archivo,0,"|"))!== false)
 }
 fclose($archivo);
 $archivo=fopen($ruta,"r");
-while(($lineas=fgetcsv($archivo,0,"|"))!== false)
+while(($lineas=fgetcsv($archivo,0,"|")??"")!== false)
 {  
 
     if($lineas[1]!=$eliminar)
@@ -98,8 +98,8 @@ table
 <body>
     <header>  
     <nav>  
-        <a href="/index.php">Inicio</a>  
-        <a href="/consulta.php">consultas</a>  
+        <a href="index.php">Inicio</a>  
+        <a href="consulta.php">consultas</a>  
     </nav>  
     </header>  
             <div class="container2">
@@ -110,7 +110,7 @@ table
             <tr><td>id</td><td>Nombre</td><td>Deuda</td><td>informacion</td></tr>
         <?php   
         $archivo=fopen($ruta,"r");
-        while(($lineas=fgetcsv($archivo,0,"|"))!== false)
+        while(($lineas=fgetcsv($archivo,0,"|")??"")!== false)
         {  
             echo"<tr> <td>{$lineas[0]}</td>
                 <td>{$lineas[1]}</td>
