@@ -31,6 +31,7 @@ $resultado=$guardar->guardar1($datos,$ruta);
 
 
 }
+
 ?>
 <!DOCTYPE html>  
 <html lang="es">  
@@ -68,7 +69,7 @@ $resultado=$guardar->guardar1($datos,$ruta);
     background-color: rgba(206, 206, 206, 0.53);
 }
 
-        }  
+        
         p
         {
             margin-left:-4%;
@@ -80,14 +81,14 @@ $resultado=$guardar->guardar1($datos,$ruta);
 
 <header>  
     <nav>  
-        <a href="index.php">Inicio</a>  
+        <a href="index.html">Inicio</a>  
         <a href="consulta.php">consultas</a>  
         
     </nav>  
 </header>  
 
 <div class="container">  
-<form  action="index.php" method="post"> <br>
+<form  action="archivo.php" method="post"> <br>
 <p>Nombre</p>
 <input type="text" id="name" name="name"><br>
 <p>Deuda</p>
@@ -95,8 +96,8 @@ $resultado=$guardar->guardar1($datos,$ruta);
 <p>Informacion</p>
 <input type="text" id="mensaje" name="mensaje"><br>
 <input type="submit">
-<p ><?php echo $resultado;?></p>
-<tr> <td></td></tr>
+
+<tr> <td><?php echo $resultado; ?></td></tr>
 </div >  
 </body>  
 </html>  

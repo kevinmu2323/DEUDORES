@@ -98,7 +98,7 @@ table
 <body>
     <header>  
     <nav>  
-        <a href="index.php">Inicio</a>  
+        <a href="index.html">Inicio</a>  
         <a href="consulta.php">consultas</a>  
     </nav>  
     </header>  
