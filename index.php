@@ -1,0 +1,102 @@
+<?php
+if($_SERVER['REQUEST_METHOD']==='POST')
+{
+    include 'clases.php';
+    include 'consultas.php';
+$name=$_POST['name'];
+$valor=$_POST['valor'];
+$mensaje=$_POST['mensaje'];
+$ruta= congif :: ruta();
+$name=strtoupper($name);
+$result="";
+$id=1;
+$archivo=fopen($ruta,"r");
+while(!feof($archivo))
+{
+    $lineas=fgetcsv($archivo,0,"|");
+    if($lineas[0]=="")
+    {
+        continue;
+    }
+    else
+    {
+        $id=$lineas[0]+1;
+    }
+}
+fclose($archivo);
+$datos="$id|$name|$valor|$mensaje|\n";
+$guardar=new Guardar();
+$resultado=$guardar->guardar1($datos,$ruta);
+
+
+
+}
+?>
+<!DOCTYPE html>  
+<html lang="es">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Deudores</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+            background-color:rgb(134, 134, 134);
+        }  
+        header {  
+            background-color: #4CAF50;  
+            color: white;  
+            padding: 10px 20px;  
+            text-align: center;  
+        }  
+        nav {  
+            margin: 10px 0;  
+        }  
+        nav a {  
+            margin: 0 15px;  
+            color: white;  
+            text-decoration: none;  
+        }  
+        .container, .container2 {
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    padding: 3%;
+    background-color: rgba(206, 206, 206, 0.53);
+}
+
+        }  
+        p
+        {
+            margin-left:-4%;
+            background-color:#FFF; 
+        }
+    </style>  
+</head>  
+<body>  
+
+<header>  
+    <nav>  
+        <a href="index.php">Inicio</a>  
+        <a href="consulta.php">consultas</a>  
+        
+    </nav>  
+</header>  
+
+<div class="container">  
+<form  action="index.php" method="post"> <br>
+<p>Nombre</p>
+<input type="text" id="name" name="name"><br>
+<p>Deuda</p>
+<input type="number" id="valor" name="valor"><br>
+<p>Informacion</p>
+<input type="text" id="mensaje" name="mensaje"><br>
+<input type="submit">
+<p ><?php echo $resultado;?></p>
+<tr> <td></td></tr>
+</div >  
+</body>  
+</html>  
