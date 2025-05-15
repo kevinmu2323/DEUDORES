@@ -17,12 +17,12 @@ class Guardar
             return $result;
     }
 }
-class congif
+class config
 
 {
 public static function ruta  ()
 {
-    return'archivos/Info.csv';
+    return'archivos/nombres.csv';
 }
 
 
