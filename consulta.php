@@ -1,7 +1,7 @@
 <?php
 include 'clases.php';
-$name=$_POST['nombre'];
-$seleccion=$_POST['seleccion'];
+$name=$_POST['nombre']??"";
+$seleccion=$_POST['seleccion']??"";
 $rutas= config :: ruta();
 $fila=[];
 $guardar=fopen($rutas,"a");
@@ -9,10 +9,10 @@ $tabla = "";
 $datofinal="";
 $result=0;
 $opciones="";
-$operacion=$_POST['operacion'];
+$operacion=$_POST['operacion']??"";
 $monto=[];
 $lineanueva=[];
-$eliminar=$_POST['eliminar'];
+$eliminar=$_POST['eliminar']??"";
 $eliminando = false;
 $ultimo_nombre = "";
 

@@ -8,9 +8,10 @@ include 'clases.php';
     $guardar=new Guardar();
     $agregado = false;
     $selecionado=$_POST['seleccionados']??"";
-    $valor=$_POST['valor'];
-    $mensaje=$_POST['mensaje'];
+    $valor=$_POST['valor']??"";
+    $mensaje=$_POST['mensaje']??"";
     $agregar_a_esta = false;
+    $datofinal="";
     $archivo=fopen($ruta,"r");
 $archivo = fopen($ruta, "r");
 if ($archivo) {
